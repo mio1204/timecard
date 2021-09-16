@@ -19,6 +19,7 @@ use App\Http\Middleware\LoginMiddleware;
 */
 
 Route::get('/', [TimecardController::class, 'index'])->middleware('unauth');
+
 Route::get('/login', [LoginController::class, 'getAuth'])->middleware('login');
 Route::post('/login', [LoginController::class, 'postAuth']);
 
@@ -32,12 +33,10 @@ Route::post('reststart', [TimecardController::class, 'restStart'])->name('restst
 Route::post('restfinish', [TimecardController::class, 'restFinish'])->name('restfinish');
 
 Route::get('attendance', [AttendanceController::class, 'attendance']);
-// Route::get('test', [AttendanceController::class, 'attendance']);
-
-
+Route::get('users', [AttendanceController::class, 'users']);
+Route::get('user_attendance', [AttendanceController::class, 'user_attendance'])->name('user_attendance');
 
 Route::get('logout', [TimecardController::class, 'getLogout'])->name('logout');
-
 
 
 // Route::post('login', function () {

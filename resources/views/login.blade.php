@@ -4,7 +4,7 @@
 @section('content')
   <h3 class="content-title mb-20">{{$text}}</h3>
   @if(session()->has('text'))
-  <p class="error-msg">{{session()->get('text')}}</p>
+    <p class="error-msg">{{session()->get('text')}}</p>
   @endif
 
   <form action="/login" class="form" method="post">

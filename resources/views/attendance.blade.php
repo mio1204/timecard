@@ -8,31 +8,16 @@
     text-align: center;
   }
 
-  .attendance-table {
-    width: 100%;
-    margin: 40px auto;
-    border-collapse: collapse;
-    table-layout: fixed;
-  }
-@media screen and (max-width: 480px){
-  .attendance-table {
-    font-size: 12px;
-  }
-}
 
-  .button-date {
-    border: 1px solid#005FFF;
-    padding: 2px 7px;
-    color: #005FFF;
-    background-color: #fff;
-  }
 </style>
 
 @section('content')
 <div class="content-title mb-20">
+
   <a class="button-date" href="?date={{$day->copy()->subDay()->format('Ymd')}}">＜</a>
   <h3 class="content-title">{{$day->format('Y-m-d')}}</h3>
   <a class="button-date" href="?date={{$day->copy()->addDay()->format('Ymd')}}">＞</a>
+
 </div>
 
 <table class="attendance-table">
@@ -54,5 +39,6 @@
   </tr>
 @endforeach
 </table>
+
 {{$items->appends(request()->input())->links()}}
 @endsection

@@ -30,8 +30,10 @@
       <input type="password" name="password_confirmation" placeholder="確認用パスワード" class="input-content mb-20">
 
       <input type="submit" value="会員登録" class="button mb-20">
+
     </div>
   </form>
+
   <div>
     <p class="msg-alter">アカウントをお持ちの方はこちらから</p>
     <a href="/login" class="link-alter">{{ __('ログイン') }}</a>

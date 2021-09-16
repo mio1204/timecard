@@ -94,6 +94,7 @@
       color: #2B2E2E;
     }
 
+/* ヘッダーフッター以外の大枠共通 */
     .main-content {
       width: 100%;
       background: #fbfcfe;
@@ -115,7 +116,6 @@
     width: 90%;
   }
 }
-
     .mb-20 {
     margin-bottom: 20px;
   }
@@ -150,6 +150,25 @@
   width: 90%;
   margin: 0 auto;
 }
+
+/* 勤怠一覧 */
+  .attendance-table {
+    width: 100%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+@media screen and (max-width: 480px){
+  .attendance-table {
+    font-size: 12px;
+  }
+}
+  .button-date {
+    border: 1px solid#005FFF;
+    padding: 2px 7px;
+    color: #005FFF;
+    background-color: #fff;
+  }
 
 /* ログイン・新規登録共通 */
 .form {
@@ -221,13 +240,13 @@
   </header>
 
   <main>
-  <div class="wrap">
-    <div class="main-content">
-      <div class="main-content-card">
-        @yield('content')
+    <div class="wrap">
+      <div class="main-content">
+        <div class="main-content-card">
+          @yield('content')
+        </div>
       </div>
     </div>
-  </div>
   </main>
 
   <footer>

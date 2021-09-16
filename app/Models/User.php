@@ -43,6 +43,6 @@ class User extends Authenticatable
 
     public function timecards()
     {
-        return $this->hasMany('App\Models\Timecard', 'id');
+        return $this->hasMany('App\Models\Timecard');
     }
 }
