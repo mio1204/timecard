@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="content-title mb-20">
-  <h3 class="content-title">社員一覧</h3>
+  <h3 class="content-title">ユーザー一覧</h3>
 </div>
 
 <table class="attendance-table">

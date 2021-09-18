@@ -18,7 +18,7 @@
 
 @section('content')
 <div class="content-title mb-20">
-  <h3 class="content-title">{{$name}}さんの出勤簿</h3>
+  <h3 class="content-title">{{$name}}さんの出勤一覧</h3>
 </div>
 
 <table class="attendance-table">

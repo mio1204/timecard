@@ -13,7 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 
-class HelloTest extends TestCase
+class TimecardTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -69,20 +69,54 @@ class HelloTest extends TestCase
 
     public function testAccess()
     {
+        // ログインせずトップページへアクセスするとログインへ
+        $this->get('/')->assertRedirect('login');
+
         $user = User::factory()->create();
         $this->actingAs($user);
-        // $this->assertTrue(true);
         $this->assertTrue(Auth::check());
 
         $response = $this->get('/');
         $response->assertStatus(200);
 
         $response = $this->get('logout');
-        // $this->assertTrue(Auth::check());
         $response->assertRedirect('/login');
 
         $response = $this->get('/no_route');
         $response->assertStatus(404);
+    }
+
+    // ログイン成功
+    public function valid_login()
+    {
+        $user = User::factory()->create([
+            'password' => 'test1111'
+        ]);
+        $this->assertFalse(Auth::check());
+        $response = $this->post('login', [
+            'email' => $user->email,
+            'password' => 'test1111'
+        ]);
+        $this->assertTrue(Auth::check());
+        $response->assertRedirect('/');
+    }
+    // ログイン失敗
+    public function invalid_login()
+    {
+        $user = User::factory()->create([
+            'password' => 'test1111'
+        ]);
+        $this->assertFalse(Auth::check());
+        $response = $this->post('login', [
+            'email' => $user->email,
+            'password' => 'test2222'
+        ]);
+        $this->assertFalse(Auth::check());
+        $response->assertSessionHasErrors(['email']);
+        $this->assertEquals(
+            '登録情報がありません',
+            session('errors')->first('email')
+        );
     }
 
     public function testDatabase()

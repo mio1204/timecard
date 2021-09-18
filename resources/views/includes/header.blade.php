@@ -35,7 +35,7 @@
     <ul class="header-nav flex ">
       <li class="header-nav-item"><a href="/">ホーム</a></li>
       <li class="header-nav-item"><a href="attendance">日付一覧</a></li>
-      <li class="header-nav-item"><a href="users">社員一覧</a></li>
+      <li class="header-nav-item"><a href="users">ユーザー一覧</a></li>
   @if(Auth::check())
       <li class="header-nav-item"><a href="{{route('logout')}}">ログアウト</a></li>
   @else
